@@ -1,4 +1,4 @@
-1)This project is about how to use mvn.
+1)This project is about how to use mvn, heroku, travis ci, and git.
 
 2)It is BIL481 homework 1.
 

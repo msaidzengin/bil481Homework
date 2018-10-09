@@ -7,39 +7,45 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class AppTest 
-    extends TestCase
-{
-
-    public AppTest( String testName )
-    {
+public class AppTest extends TestCase {
+    public AppTest( String testName ) {
         super( testName );
     }
-    public static Test suite()
-    {
+    public static Test suite() {
         return new TestSuite( AppTest.class );
     }
-    public void testApp()
-    {
+    public void testApp() {
         assertTrue( true );
     }
-    public void testFound() {
-      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertTrue(new App().search(array, 4));
+    public void testFirstSet() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 1, 1, 1));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(2, 2, 2, 2, 2, 2));
+      String s1 = "said";
+      String s2 = "zengin";
+      assertEquals(App.search(array, array2, s1, s2), "tbje {fohjo");
     }
-
-    public void testNotFound() {
-      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertFalse(new App().search(array, 5));
+    public void testSecondSet() {
+        ArrayList<Integer> array = new ArrayList<>(Arrays.asList(5, 5, 5));
+        ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(5, 5, 5));
+        String s1 = "bil";
+        String s2 = "481";
+        assertEquals(App.search(array, array2, s1, s2), "gnq 9=6");
+      }
+    public void testOnlyName() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 1, 1, 1, 1, 1));
+      ArrayList<Integer> array2 = new ArrayList<>();
+      String s1 = "deneme";
+      String s2 = "";
+      assertEquals(App.search(array, array2, s1, s2), "efofnf ");
     }
-
-    public void testEmptyArray() {
+    public void testEmptySetNull() {
       ArrayList<Integer> array = new ArrayList<>();
-      assertFalse(new App().search(array, 1));
+      ArrayList<Integer> array2 = new ArrayList<>();
+      String s1 = "";
+      String s2 = "";
+      assertEquals(App.search(array, array2, s1, s2), " ");
     }
-
     public void testNull() {
-      assertFalse(new App().search(null, 1));
+      assertEquals(App.search(null, null, null, null), "");
     }
-
 }
