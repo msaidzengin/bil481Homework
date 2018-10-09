@@ -4,21 +4,19 @@ import static spark.Spark.port;
 import static spark.Spark.post;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 import java.util.Map;
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
 public class App {
-    public static String search(ArrayList<Integer> array, ArrayList<Integer> array2, String name, String lastname) {
-        System.out.println("inside search");
+    public static String encode(ArrayList<Integer> array, ArrayList<Integer> array2, String name, String lastname) {
+        System.out.println("inside encode");
         String s = "";
         if(array == null) 
             return "";
         else {
             if (array.size() < name.length()) {
                 for(int i=0; i<name.length()-array.size(); i++) {
-                    Random rand = new Random();
-                    array.add(rand.nextInt(20) + 1);
+                    array.add(array.get(0));
                 }
             }
             for(int i=0; i<name.length(); i++) {
@@ -28,8 +26,7 @@ public class App {
             s += " ";
             if (array2.size() < lastname.length()) {
                 for(int i=0; i<lastname.length()-array2.size(); i++) {
-                    Random rand = new Random();
-                    array2.add(rand.nextInt(20) + 1);
+                    array2.add(array.get(0));
                 }
             }
             for(int i=0; i<lastname.length(); i++) {
@@ -68,7 +65,7 @@ public class App {
 
             String input3 = req.queryParams("input3").replaceAll("\\s","");
             String input4 = req.queryParams("input4").replaceAll("\\s","");
-            String result = App.search(inputList, inputList2, input3, input4);
+            String result = App.encode(inputList, inputList2, input3, input4);
             Map map = new HashMap();
             map.put("result", result);
             return new ModelAndView(map, "compute.mustache");
