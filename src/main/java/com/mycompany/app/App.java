@@ -11,7 +11,7 @@ public class App {
     public static String encode(ArrayList<Integer> array, ArrayList<Integer> array2, String name, String lastname) {
         System.out.println("inside encode");
         String s = "";
-        if(array == null) 
+        if((array == null) || (array2 == null)) 
             return "";
         else {
             if (array.size() < name.length()) {
@@ -26,7 +26,7 @@ public class App {
             s += " ";
             if (array2.size() < lastname.length()) {
                 for(int i=0; i<lastname.length(); i++) {
-                    array2.add(array.get(0));
+                    array2.add(array2.get(0));
                 }
             }
             for(int i=0; i<lastname.length(); i++) {
