@@ -15,7 +15,7 @@ public class App {
             return "";
         else {
             if (array.size() < name.length()) {
-                for(int i=0; i<name.length()-array.size(); i++) {
+                for(int i=0; i<name.length(); i++) {
                     array.add(array.get(0));
                 }
             }
@@ -25,7 +25,7 @@ public class App {
             }
             s += " ";
             if (array2.size() < lastname.length()) {
-                for(int i=0; i<lastname.length()-array2.size(); i++) {
+                for(int i=0; i<lastname.length(); i++) {
                     array2.add(array.get(0));
                 }
             }
